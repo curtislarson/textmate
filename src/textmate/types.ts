@@ -68,31 +68,32 @@ export interface IOnigLib {
   createOnigString(str: string): OnigString;
 }
 
-
 export interface IOnigLib {
-	createOnigScanner(sources: string[]): OnigScanner;
-	createOnigString(str: string): OnigString;
+  createOnigScanner(sources: string[]): OnigScanner;
+  createOnigString(str: string): OnigString;
 }
 
 export interface IOnigCaptureIndex {
-	start: number;
-	end: number;
-	length: number;
+  start: number;
+  end: number;
+  length: number;
 }
-
 
 export interface IOnigMatch {
-	index: number;
-	captureIndices: IOnigCaptureIndex[];
+  index: number;
+  captureIndices: IOnigCaptureIndex[];
 }
 
-
 export interface OnigScanner {
-	findNextMatchSync(string: string | OnigString, startPosition: number, options: number): IOnigMatch | null;
-	dispose?(): void;
+  findNextMatchSync(
+    string: string | OnigString,
+    startPosition: number,
+    options: number,
+  ): IOnigMatch | null;
+  dispose(): void;
 }
 
 export interface OnigString {
-	readonly content: string;
-	dispose?(): void;
+  readonly content: string;
+  dispose(): void;
 }

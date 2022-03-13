@@ -33,7 +33,7 @@ import {
   IOnigCaptureIndex,
   OnigScanner,
   OnigString,
-} from "../oniguruma.ts";
+} from "../onig.ts";
 
 const DebugFlags = {
   InDebugMode: false,
@@ -658,7 +658,7 @@ export class Grammar implements IGrammar, IRuleFactoryHelper, IOnigLib {
   }
 
   public createOnigScanner(sources: string[]): OnigScanner {
-    return this._onigLib.createOnigScanner(sources);
+    return this._onigLib.createOnigScanner(sources) as OnigScanner;
   }
 
   public createOnigString(sources: string): OnigString {

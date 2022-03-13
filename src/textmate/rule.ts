@@ -3,7 +3,7 @@
  *--------------------------------------------------------*/
 
 import { basename } from "https://deno.land/std@0.128.0/path/mod.ts";
-import { IOnigCaptureIndex, OnigScanner } from "../oniguruma.ts";
+import { IOnigCaptureIndex, OnigScanner } from "../onig.ts";
 import {
   ILocation,
   IOnigLib,
@@ -77,7 +77,7 @@ export class CompiledRule {
   constructor(onigLib: IOnigLib, regExps: string[], rules: number[]) {
     this.debugRegExps = regExps;
     this.rules = rules;
-    this.scanner = onigLib.createOnigScanner(regExps);
+    this.scanner = onigLib.createOnigScanner(regExps) as OnigScanner;
   }
 
   public dispose(): void {
